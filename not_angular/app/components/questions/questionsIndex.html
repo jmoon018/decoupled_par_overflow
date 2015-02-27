@@ -1,0 +1,21 @@
+<h1 class="thread_title">Questions Index</h1>
+<div ng-controller='QuestionsIndexCtrl' ng-id="">
+  <ul ng-repeat='question in questions'>
+    <li class="question_list">
+      <p class="post_title"><a href="#/questions/{{question.id}}">{{question.title}}</a></p>
+      <p>{{question.content}}</p>
+    </li>
+  </ul>
+</div>
+
+<div class='question_list'>
+  <p class="post_title">{{newQuestionTitle}}</p>
+  <p>{{newQuestionContent}}</p>
+</div>
+
+<div class='new_question'>
+  <p>Create a question:</p>
+  <input placeholder='title' ng-model='newQuestionTitle'><br>
+  <textarea placeholder='content' ng-model='newQuestionContent'></textarea>
+  <button ng-click='submitNewQuestion()'>Submit</button>
+</div>

@@ -1,0 +1,12 @@
+<div class="central">
+  {{display}}
+  <br>
+  <label for="identifier">Name/Email:</label>
+  <input type="text" id="identifier" ng-model="credentials.identifier">
+
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" ng-model="credentials.password">
+  <br>
+  <button ng-click="usersLogin()">Login</button>
+</div>

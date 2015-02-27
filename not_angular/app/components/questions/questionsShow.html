@@ -1,0 +1,34 @@
+<h1 class="thread_title">{{question.title}}</h1>
+
+
+<div class="question_box">
+  <p class="post_title">{{question.title}}</p>
+  <p>{{question.content}}</p>
+
+  <button ng-click="upvoteQuestion()">Upvote</button>
+  <button ng-click="downvoteQuestion()">Downvote</button>
+  <p>Votes: {{question.vote_count}}</p>
+</div>
+
+<ul ng-repeat='answer in answers'>
+  <li class="answer_list">
+    <p class="post_title">{{answer.title}}</p>
+    <p>{{answer.content}}</p>
+    <button ng-click="upvoteAnswer($index)">Upvote</button>
+    <button ng-click="downvoteAnswer($index)">Downvote</button>
+    <p>Votes: {{answer.vote_count}}</p>
+  </li>
+</ul>
+
+<div class='answer_list'>
+  <p class="post_title">{{newAnswerTitle}}</p>
+  <p>{{newAnswerContent}}</p>
+</div>
+
+<div class='new_answer'>
+  <p>Post an answer:</p>
+  <input placeholder='title' ng-model='newAnswerTitle'><br>
+  <textarea placeholder='content' ng-model='newAnswerContent'></textarea>
+  <button ng-click='submitNewAnswer()'>Submit</button>
+</div>
+
