@@ -1,5 +1,5 @@
 app.controller("UsersIndexCtrl", function($scope, $http, $routeParams) {
-  $http.get("/api/users").
+  $http.get("http://localhost:3000/api/users").
   success(function(data) {
     console.log("Getting all users -- success");
     $scope.users = data;

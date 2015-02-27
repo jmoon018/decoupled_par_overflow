@@ -1,7 +1,10 @@
-app.controller("HeaderCtrl", function($scope, sessionService) {
-  if (!sessionService.session.user) {
+app.controller("HeaderCtrl", function($scope) {
+  if (!sessionStorage.user_name) {
     console.log("No user in session.");
-    sessionService.session["user"] = {name: ""};
+    sessionStorage.user_name = "";
   }
-  $scope.greeting = sessionService.session.user.name;
+  $scope.greeting = sessionStorage.user_name;
+  console.log("Greeting: " + $scope.greeting);
+
+  console.log("trying to get the session storage user: " + sessionStorage.user_name);
 });

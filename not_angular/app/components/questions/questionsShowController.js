@@ -4,7 +4,7 @@ app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams) {
 
   function getQuestion() {
     console.log("GETTING QUESTION");
-    $http.get('/api/questions/'+$routeParams.id).
+    $http.get('http://localhost:3000/api/questions/'+$routeParams.id).
     success(function(data){
       console.log('got Question!');
       $scope.question = data
@@ -18,7 +18,7 @@ app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams) {
   getQuestion();
 
   function getAnswers() {
-    $http.get('/api/questions/'+$routeParams.id+'/answers').
+    $http.get('http://localhost:3000/api/questions/'+$routeParams.id+'/answers').
     success(function(data){
       console.log('able to getAnswers.');
       $scope.answers = data;
@@ -31,7 +31,7 @@ app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams) {
   getAnswers();
 
   $scope.submitNewAnswer = function() {
-    $http.post('/api/questions/'+ $routeParams.id +'/answers',
+    $http.post('http://localhost:3000/api/questions/'+ $routeParams.id +'/answers',
     {
       title: $scope.newAnswerTitle,
       content: $scope.newAnswerContent
@@ -45,21 +45,21 @@ app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams) {
   };
 
   $scope.upvoteQuestion = function() {
-    $http.post("/api/questions/" + $routeParams.id+"/upvote").
+    $http.post("http://localhost:3000/api/questions/" + $routeParams.id+"/upvote").
     success(function() {
       $scope.question.vote_count++;
     });
   };
 
   $scope.downvoteQuestion = function() {
-    $http.post("/api/questions/" + $routeParams.id+"/downvote").
+    $http.post("http://localhost:3000/api/questions/" + $routeParams.id+"/downvote").
     success(function() {
       $scope.question.vote_count--;
     });
   };
 
   $scope.upvoteAnswer = function(index) {
-    $http.post("/api/questions/"+$routeParams.id+"/answers/"+$scope.answers[index].id + "/upvote").
+    $http.post("http://localhost:3000/api/questions/"+$routeParams.id+"/answers/"+$scope.answers[index].id + "/upvote").
     success(function(){
       console.log("Successfully upvoted an answer");
       $scope.answers[index].vote_count++;
@@ -71,7 +71,7 @@ app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams) {
   };
 
  $scope.downvoteAnswer = function(index) {
-    $http.post("/api/questions/"+$routeParams.id+"/answers/"+$scope.answers[index].id + "/downvote").
+    $http.post("http://localhost:3000/api/questions/"+$routeParams.id+"/answers/"+$scope.answers[index].id + "/downvote").
     success(function(){
       console.log("Successfully downvote an answer");
       $scope.answers[index].vote_count--;

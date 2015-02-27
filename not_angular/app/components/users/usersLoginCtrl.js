@@ -1,4 +1,4 @@
-app.controller("UsersLoginCtrl", function ($scope, $http, $routeParams, sessionService) {
+app.controller("UsersLoginCtrl", function ($scope, $http, $routeParams) {
   $scope.credentials = {
     // can be username or email
     identifier: "",
@@ -18,9 +18,16 @@ app.controller("UsersLoginCtrl", function ($scope, $http, $routeParams, sessionS
     }).
     success(function(data){
       console.log('able to usersLogin')
-      sessionService.session.user = data
       $scope.display = ("Hi, " + data.name)
-      console.log(sessionService.session.user)
+      sessionStorage.user_id = data.id;
+      sessionStorage.user_name = data.name;
+      //$scope.$apply(function(){
+        //$scope.greeting = "LLLLLLLLLL";
+      //});
+      console.log("trying to select");
+      var elemScope = angular.element("#greetingTag").scope();
+      console.log("whatwhathwt");
+      var elem
     }).
     error(function(data){
       console.log('unable to usersLogin')
