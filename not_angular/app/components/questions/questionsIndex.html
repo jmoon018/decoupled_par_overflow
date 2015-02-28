@@ -13,7 +13,7 @@
   <p>{{newQuestionContent}}</p>
 </div>
 
-<div class='new_question'>
+<div class='new_question' ng-show="isLoggedIn">
   <p>Create a question:</p>
   <input placeholder='title' ng-model='newQuestionTitle'><br>
   <textarea placeholder='content' ng-model='newQuestionContent'></textarea>

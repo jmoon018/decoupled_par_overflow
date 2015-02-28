@@ -1,5 +1,7 @@
 // Questions#Index controller
-app.controller('QuestionsIndexCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('QuestionsIndexCtrl', ['$scope', '$http', 'sessionHelpers', function($scope, $http, sessionHelpers) {
+
+  $scope.isLoggedIn = sessionHelpers.isLoggedIn();
 
   function getQuestions() {
     $http.get('http://localhost:3000/api/questions').
