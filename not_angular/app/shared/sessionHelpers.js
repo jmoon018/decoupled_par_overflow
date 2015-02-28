@@ -10,4 +10,8 @@ app.service('sessionHelpers', function(){
     }
   };
 
+  this.isOwner = function(owner_id) {
+    return (owner_id === parseInt(sessionStorage.user_id));
+  };
+
 });

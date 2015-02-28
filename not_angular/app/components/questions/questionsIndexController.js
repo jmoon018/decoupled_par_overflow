@@ -17,6 +17,7 @@ app.controller('QuestionsIndexCtrl', ['$scope', '$http', 'sessionHelpers', funct
   $scope.submitNewQuestion = function() {
     $http.post('http://localhost:3000/api/questions',
     {
+      user_id: sessionStorage.user_id,
       title: $scope.newQuestionTitle,
       content: $scope.newQuestionContent
     }).

@@ -21,13 +21,6 @@ app.controller("UsersLoginCtrl", function ($scope, $http, $routeParams) {
       $scope.display = ("Hi, " + data.name)
       sessionStorage.user_id = data.id;
       sessionStorage.user_name = data.name;
-      //$scope.$apply(function(){
-        //$scope.greeting = "LLLLLLLLLL";
-      //});
-      console.log("trying to select");
-      var elemScope = angular.element("#greetingTag").scope();
-      console.log("whatwhathwt");
-      var elem
     }).
     error(function(data){
       console.log('unable to usersLogin')

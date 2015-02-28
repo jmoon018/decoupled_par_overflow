@@ -2,6 +2,10 @@
 app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams, sessionHelpers) {
 
   $scope.isLoggedIn = sessionHelpers.isLoggedIn();
+  $scope.isOwner = function(index) {
+    owner_id = $scope.answers[index].user_id;
+    return sessionHelpers.isOwner(owner_id);
+  };
 
   function getQuestion() {
     console.log("GETTING QUESTION");
@@ -34,6 +38,7 @@ app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams, sessio
   $scope.submitNewAnswer = function() {
     $http.post('http://localhost:3000/api/questions/'+ $routeParams.id +'/answers',
     {
+      user_id: sessionStorage.user_id,
       title: $scope.newAnswerTitle,
       content: $scope.newAnswerContent
     }).

@@ -16,6 +16,8 @@
     <p>{{answer.content}}</p>
     <button ng-click="upvoteAnswer($index)">Upvote</button>
     <button ng-click="downvoteAnswer($index)">Downvote</button>
+    <button ng-show="isOwner($index)" ng-click="deleteAnswer($index)">Delete</button>
+    <button ng-show="isOwner($index)" ng-click="editAnswer($index)">Edit</button>
     <p>Votes: {{answer.vote_count}}</p>
   </li>
 </ul>
