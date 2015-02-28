@@ -1,6 +1,8 @@
 // Questions#Show action controller
-app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams) {
+app.controller("QuestionsShowCtrl", function($scope, $http, $routeParams, sessionHelpers) {
   console.log("Inside QuestionsShowCtrl");
+
+  $scope.isLoggedIn = sessionHelpers.isLoggedIn();
 
   function getQuestion() {
     console.log("GETTING QUESTION");

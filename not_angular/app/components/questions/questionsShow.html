@@ -25,7 +25,7 @@
   <p>{{newAnswerContent}}</p>
 </div>
 
-<div class='new_answer'>
+<div class='new_answer' ng-show="isLoggedIn">
   <p>Post an answer:</p>
   <input placeholder='title' ng-model='newAnswerTitle'><br>
   <textarea placeholder='content' ng-model='newAnswerContent'></textarea>

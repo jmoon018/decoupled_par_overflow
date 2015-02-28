@@ -1,5 +1,5 @@
 // Questions#Index controller
-app.controller('QuestionsIndexCtrl', function($scope, $http){
+app.controller('QuestionsIndexCtrl', ['$scope', '$http', function($scope, $http) {
 
   function getQuestions() {
     $http.get('http://localhost:3000/api/questions').
@@ -26,4 +26,4 @@ app.controller('QuestionsIndexCtrl', function($scope, $http){
     });
   };
 
-});
+}]);
